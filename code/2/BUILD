@@ -15,3 +15,11 @@ cc_binary(
 		":func_object",
 	]
 )
+
+cc_binary(
+	name = "detach_obj_lifetime",
+	srcs = [
+		"detach_obj_lifetime.h",
+		"detach_obj_lifetime.cc",
+	]
+)

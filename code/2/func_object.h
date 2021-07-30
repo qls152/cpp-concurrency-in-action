@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 
 // 本文件中的实现意图：为了构造可调用对象，

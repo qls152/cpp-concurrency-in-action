@@ -76,13 +76,13 @@ zsh: abort      ./bazel-bin/code/2/basic_thread_manage
 ```
 这是由于**std::thread的析构函数会调用std::terminate()函数**，该函数会终止程序。
 
-因此，为了避免std::thread析构问题，需要调用std::thread::join()和std::thread::detach()来join或者detach线程。
+因此，为了避免std::thread析构问题，需要调用std::thread的join()和detach()来join或者detach线程。
 
-针对std::thread::join()接口：
+针对std::thread的join()接口：
 
 **若std::thread已经join后，该thread对象便不再拥有其可执行线程，变成不可join。**
 
-针对std::thread::detach()接口：
+针对std::thread的detach()接口：
 
 **若std::thread已经detach后，该thread对象便不再拥有其可执行线程，变成不可join，其执行线程由C++ Runtime 库管理和回收**
 

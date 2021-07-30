@@ -116,3 +116,40 @@ struct Func {
 因此，当主线程在my_thread线程之前退出，则会出现悬挂指针问题，导致程序出现未定义行为。
 
 # 在异常存在情况下join线程
+
+在异常存在的情况下写C++程序，一般需要利用try/catch来进行异常捕获，在多线程的情景下，需要在catch块中调用std::thread的join接口，以实现线程等待。
+
+下面的代码简单的描述上面所述，
+```
+int main() {
+  int some_local_state = 0;
+  int i = 0;
+  Func func(some_local_state);
+  std::thread t(func);
+  try {
+	  ++i;
+  } catch(...) {           // ... 此语句捕获所有异常
+	  t.join();
+	  throw;
+  }
+  t.join();
+
+  return 0;
+}
+```
+
+try/catch块是很丑陋的手法，更优雅的做法是利用RAII, 在一个类的析构函数中调用std::thread的join接口，其全部实现可参考code/2/thread_guard.h, 这里给出测试代码
+
+```
+ int some_local_state = 0;
+  int i = 0;
+  Func func(some_local_state);
+  std::thread t(func);
+  ThreadGuard thr(t);
+```
+
+当函数结束时，会销毁ThreadGuard对象，该对象的析构函数中会调用std::thread的joinable接口和join接口。
+
+在ThreadGuard的析构函数中，必须保证joinable在join之前调用，这是因为join只能被调用一次。
+
+关于detach接口的使用，可以参考join，此处不再总结。

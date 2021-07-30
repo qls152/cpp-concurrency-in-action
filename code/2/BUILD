@@ -23,3 +23,12 @@ cc_binary(
 		"detach_obj_lifetime.cc",
 	]
 )
+
+cc_binary(
+	name = "except_thread",
+	srcs = [
+		"except_thread.cc",
+		"detach_obj_lifetime.h",
+		"guard_thread.h",
+	],
+)

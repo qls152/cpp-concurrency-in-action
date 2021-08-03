@@ -53,7 +53,7 @@ int main() {
 
 原因：
 
-**std::thread会拷贝参数到可执行线程存储中，因此上述会将char* 拷贝至线程存储中，当线程运行时，会将char * 转换为std::string, 而在转换的时候可能main线程已经退出。**
+**std::thread会拷贝参数到可执行线程存储中，因此上述会将char\* 拷贝至线程存储中，当线程运行时，会将char\* 转换为std::string, 而在转换的时候可能main线程已经退出。**
 
 解决方案：只需将上述代码的buffer参数变为std::string(buffer), 在std::thread构造函数中，提前转换为string。
 

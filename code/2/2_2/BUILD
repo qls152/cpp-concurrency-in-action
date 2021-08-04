@@ -12,3 +12,13 @@ cc_binary(
 	name = "not_oops",
 	srcs = ["not_oops.cc"],
 )
+
+cc_binary(
+       name = "update_data",
+       srcs = ["update_data.cc"],
+)
+
+cc_binary(
+	name = "member_func",
+	srcs = ["member_func.cc"],
+)

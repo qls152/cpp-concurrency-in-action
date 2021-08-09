@@ -6,3 +6,11 @@ cc_binary(
 	srcs = ["owner1.cc"],
 	copts = [],
 )
+
+cc_binary(
+	name = "scoped_thread",
+	srcs = [
+		"scoped_thread.cc",
+	],
+	copts = [],
+)

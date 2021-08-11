@@ -14,3 +14,9 @@ cc_binary(
 	],
 	copts = [],
 )
+
+cc_binary(
+	name = "vector_thread",
+	srcs = ["vector_thread.cc"],
+	copts = [],
+)

@@ -161,3 +161,27 @@ public:
 
 std::thread对象可转移其可执行线程的所有权也可应用在std::vector等容器上，这使得实现线程池成为可能。 下面的例子，是一个将一些线程放入std::vector中，并等待其完成。
 
+```
+void do_something(int i) {
+  std::cout << "hello world: " << std::to_string(i) << " \n";
+  return;
+}
+
+int main() {
+  std::vector<std::thread> thread_container;
+  int thread_nums = 10;
+  for (int i = 0; i < thread_nums; ++i) {
+    thread_container.emplace_back(do_something, i);
+  }
+  
+  for (auto& thr : thread_container) {
+    thr.join();
+  }
+
+  return 0;
+
+}
+
+```
+将std::thread对象放入std::vector中是向自动化管理线程的初步尝试，这些线程会被作为一组对待。这也是线程池的初步模型。
+

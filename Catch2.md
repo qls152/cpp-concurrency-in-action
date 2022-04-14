@@ -1,0 +1,15 @@
+# Catch2 
+
+本文档为C++测试框架 Catch2的调研及学习资料汇总
+
+## Catch2项目
+
+[Catchv2.x](https://github.com/catchorg/Catch2/tree/v2.x)
+
+[Tutorial](https://github.com/catchorg/Catch2/blob/devel/docs/tutorial.md#top)
+
+## bazel引入Catch2
+
+[How to set up Catch2 in Bazel project](https://stackoverflow.com/questions/52621760/how-to-set-up-catch2-in-bazel-project)
+
+[Create a BUILD file for compatibility with bazel #1923](https://github.com/catchorg/Catch2/pull/1923)

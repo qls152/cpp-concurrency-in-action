@@ -76,6 +76,10 @@
 
 [A Better x86 Memory Model: x86-TSO](https://www.cl.cam.ac.uk/~pes20/weakmemory/x86tso-paper.tphols.pdf)
 
+# concurrency 博客
+
+[A tutorial on modern multithreading and concurrency in C++](https://www.educative.io/blog/modern-multithreading-and-concurrency-in-cpp)
+
 # 书籍
 
 [A Primer on Memory Consistency and Cache Coherence](https://book.douban.com/subject/6829746/)
